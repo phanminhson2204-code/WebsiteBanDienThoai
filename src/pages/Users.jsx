@@ -6,13 +6,10 @@ function Users() {
 
   useEffect(() => {
 
-    fetch("http://localhost:8000/api/users")
+    fetch("https://backendwebbandienthoai.infinityfree.me/api/users")
       .then(res => res.json())
-      .then(data => {
-        console.log("DATA:", data);
-        setUsers(data);
-      })
-      .catch(err => console.log("API ERROR:", err));
+      .then(data => setUsers(data))
+      .catch(err => console.log(err));
 
   }, []);
 
