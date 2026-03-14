@@ -6,11 +6,13 @@ function Users() {
 
   useEffect(() => {
 
-    // gọi API backend
-    fetch("/users")
+    fetch("http://localhost:8000/api/users")
       .then(res => res.json())
-      .then(data => setUsers(data))
-      .catch(err => console.log(err));
+      .then(data => {
+        console.log("DATA:", data);
+        setUsers(data);
+      })
+      .catch(err => console.log("API ERROR:", err));
 
   }, []);
 
