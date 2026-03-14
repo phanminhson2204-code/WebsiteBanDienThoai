@@ -6,11 +6,12 @@ function Users() {
 
   useEffect(() => {
 
-    // gọi API backend
-    fetch("/api/users")
+    const API_URL = "https://dienthoaistore-876dc34eacaf.herokuapp.com/api/users";
+
+    fetch(API_URL)
       .then(res => res.json())
       .then(data => setUsers(data))
-      .catch(err => console.log("Lỗi kết nối",err));
+      .catch(err => console.log("Lỗi kết nối:", err));
 
   }, []);
 
