@@ -1,22 +1,14 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import './index.css'
-import App from './App.jsx'
-import Admin from './Admin.jsx'
-import AdminLogin from './AdminLogin.jsx'
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App'
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <BrowserRouter>
-      <Routes>
-       
-        <Route path="/*" element={<App />} />
+import { BrowserRouter } from 'react-router-dom'
+import { CartProvider } from './context/CartContext'
 
-        
-        <Route path="/admin/login" element={<AdminLogin />} />
-        <Route path="/admin" element={<Admin />} />
-      </Routes>
-    </BrowserRouter>
-  </StrictMode>,
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <BrowserRouter>
+    <CartProvider>
+      <App />
+    </CartProvider>
+  </BrowserRouter>
 )
